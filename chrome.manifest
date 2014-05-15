@@ -1,8 +1,15 @@
+/*
+ *  This file determines what packages and overlays mfs-message-alert extension provides
+ */
+
+# The chrome package mfs-message-alert content files are at chrome/content
 content mfs-message-alert chrome/content/
 
-overlay chrome://browser/content/browser.xul    chrome://mfs-message-alert/content/overlay.xul
+# This tells firefox to merge 'overlay.xul' into 'browser.xul' when 'browser.xul' loads
+overlay chrome://browser/content/browser.xul chrome://mfs-message-alert/content/overlay.xul
 
+#  Registers a en-US locale provider
 locale mfs-message-alert en-US chrome/locale/en-US/
 
+# Registers a default skin provider
 skin mfs-message-alert classic/1.0 chrome/skin/
-style chrome://global/content/customizeToolbar.xul  chrome://mfs-message-alert/skin/overlay.css

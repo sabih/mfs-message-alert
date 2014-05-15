@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://mfs-message-alert/skin/overlay.css" type="text/css"?>
 <!DOCTYPE overlay SYSTEM "chrome://mfs-message-alert/locale/overlay.dtd">
-<overlay id="mfs-message-alert-overlay"
-    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-<script src="overlay.js"/>
 
-  <menupopup id="menu_ToolsPopup">
-    <menuitem id="mfs-message-alert-count" label="&message;"
+<overlay id="mfs-message-alert-overlay"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">    
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="overlay.js"/>
+
+    <menupopup id="menu_ToolsPopup">
+        <menuitem id="mfs-message-alert-count" label="&message;"
         oncommand="CountMessage.onMenuItemCommand(event);"/>
-  </menupopup>
+    </menupopup>
 </overlay> 

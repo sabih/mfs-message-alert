@@ -1,22 +1,41 @@
 var CountMessage = {
     
     onLoad: function() {
-        // initialization code
+        // Initialization code
         this.initialized = true;
     },
 
     onMenuItemCommand: function() {
-        /*window.open("chrome://mfs-message-alert/content/message-alert.xul", "", "chrome");*/
         
-        var popupWidth = 300;
-        var popupHeight = 100;
-        var left = (screen.width / 2) - (popupWidth / 2);
-        var top = (screen.height / 2) - (popupHeight / 2) - 50;
+        /* DISPLAYS UNREAD MESSAGES ON SAME PAGE */
+        var message_id = content.document.getElementById("ucGPSMenu_lblUnReadMessage"),
+        count_message = 0;
         
-        window.open("chrome://mfs-message-alert/content/message-alert.xul", "", 
-	'chrome, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=YES, copyhistory=no, width='        + popupWidth + ',height=' + popupHeight + ', top=' + top + ', left=' + left);
+        // It outputs as (0)
+        count_message = message_id.innerHTML;
+        
+        // Removed parenthesis
+        count_message = count_message.slice(1,-1);
+        
+        // Coverted to int
+        count_message = parseInt(count_message);
+        
+        if (count_message === 0) {
+            
+            alert("You don't have unread messages!");
+            
+        } else if (count_message === 1) {
+            
+            alert("You have " + count_message + " unread message!");
+            
+        } else {
+            
+            alert("You have " + count_message + " unread messages!");
+            
+        }
+        
     }
     
 };
 
-window.addEventListener("load", function(e) { CountMessage.onLoad(e); }, false); 
+window.addEventListener("load", function(e) { CountMessage.onLoad(e); }, false);
